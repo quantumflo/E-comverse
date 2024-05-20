@@ -1,6 +1,6 @@
 # E-com
 
-## Tech
+## Tools
 Backend
 Spring boot
 
