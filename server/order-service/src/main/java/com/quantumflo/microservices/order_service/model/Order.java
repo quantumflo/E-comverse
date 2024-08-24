@@ -1,4 +1,4 @@
-package com.quantumflo.microservice.order_service.model;
+package com.quantumflo.microservices.order_service.model;
 
 import java.math.BigDecimal;
 

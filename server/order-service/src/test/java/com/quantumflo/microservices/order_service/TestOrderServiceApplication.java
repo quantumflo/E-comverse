@@ -1,6 +1,8 @@
-package com.quantumflo.microservice.order_service;
+package com.quantumflo.microservices.order_service;
 
 import org.springframework.boot.SpringApplication;
+
+import com.quantumflo.microservices.order_service.OrderServiceApplication;
 
 public class TestOrderServiceApplication {
 

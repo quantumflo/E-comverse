@@ -1,9 +1,9 @@
-package com.quantumflo.microservice.order_service.repository;
+package com.quantumflo.microservices.order_service.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.quantumflo.microservice.order_service.model.Order;
+import com.quantumflo.microservices.order_service.model.Order;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {

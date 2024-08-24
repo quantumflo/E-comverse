@@ -1,4 +1,4 @@
-package com.quantumflo.microservice.order_service;
+package com.quantumflo.microservices.order_service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

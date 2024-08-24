@@ -1,12 +1,12 @@
-package com.quantumflo.microservice.order_service.service;
+package com.quantumflo.microservices.order_service.service;
 
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
-import com.quantumflo.microservice.order_service.dtos.OrderRequest;
-import com.quantumflo.microservice.order_service.model.Order;
-import com.quantumflo.microservice.order_service.repository.OrderRepository;
+import com.quantumflo.microservices.order_service.dtos.OrderRequest;
+import com.quantumflo.microservices.order_service.model.Order;
+import com.quantumflo.microservices.order_service.repository.OrderRepository;
 
 import lombok.RequiredArgsConstructor;
 
