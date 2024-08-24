@@ -1,13 +1,13 @@
-package com.quantumflo.microservice.product_service.service;
+package com.quantumflo.microservices.product_service.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.quantumflo.microservice.product_service.dto.ProductRequest;
-import com.quantumflo.microservice.product_service.dto.ProductResponse;
-import com.quantumflo.microservice.product_service.model.Product;
-import com.quantumflo.microservice.product_service.repository.ProductRepository;
+import com.quantumflo.microservices.product_service.dto.ProductRequest;
+import com.quantumflo.microservices.product_service.dto.ProductResponse;
+import com.quantumflo.microservices.product_service.model.Product;
+import com.quantumflo.microservices.product_service.repository.ProductRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

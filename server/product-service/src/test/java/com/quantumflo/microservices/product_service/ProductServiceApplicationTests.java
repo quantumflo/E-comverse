@@ -1,4 +1,4 @@
-package com.quantumflo.microservice.product_service;
+package com.quantumflo.microservices.product_service;
 
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;

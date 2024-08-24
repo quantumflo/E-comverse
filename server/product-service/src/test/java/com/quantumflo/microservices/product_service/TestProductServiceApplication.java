@@ -1,6 +1,8 @@
-package com.quantumflo.microservice.product_service;
+package com.quantumflo.microservices.product_service;
 
 import org.springframework.boot.SpringApplication;
+
+import com.quantumflo.microservices.product_service.ProductServiceApplication;
 
 public class TestProductServiceApplication {
 

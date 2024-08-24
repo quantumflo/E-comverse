@@ -1,4 +1,4 @@
-package com.quantumflo.microservice.product_service.dto;
+package com.quantumflo.microservices.product_service.dto;
 
 import java.math.BigDecimal;
 

@@ -1,4 +1,4 @@
-package com.quantumflo.microservice.product_service;
+package com.quantumflo.microservices.product_service;
 
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
