@@ -30,6 +30,7 @@ public class OrderService {
             orderRepository.save(order);
         } else {
             throw new RuntimeException("Product with skuCode " + orderRequest.skuCode() +"  is out of stock" );
+            
         }    
     }
 }
