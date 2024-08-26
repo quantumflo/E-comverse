@@ -1,6 +1,6 @@
 package com.quantumflo.microservices.order_service;
-import com.quantumflo.microservices.order_service.stubs.InventoryClientStub;
-import io.restassured.RestAssured;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,7 +10,10 @@ import org.springframework.boot.testcontainers.service.connection.ServiceConnect
 import org.springframework.cloud.contract.wiremock.AutoConfigureWireMock;
 import org.testcontainers.containers.MySQLContainer;
 
-import static org.hamcrest.MatcherAssert.assertThat;
+import com.quantumflo.microservices.order_service.stubs.InventoryClientStub;
+
+import io.restassured.RestAssured;
+
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureWireMock(port = 0)
