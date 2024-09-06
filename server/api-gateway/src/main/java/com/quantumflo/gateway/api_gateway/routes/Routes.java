@@ -27,7 +27,7 @@ public class Routes {
 
     @Bean
     public RouterFunction<ServerResponse> productServiceSwaggerRoute() {
-        return GatewayRouterFunctions.route("order_service").
+        return GatewayRouterFunctions.route("product_service").
                 route(RequestPredicates.path("/aggregate/product-service/v3/api-docs"), HandlerFunctions.http(productServiceURL))
                 .filter(FilterFunctions.setPath("/api-docs"))
                 .build();
