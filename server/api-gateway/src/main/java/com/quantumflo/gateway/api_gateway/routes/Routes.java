@@ -21,6 +21,7 @@ import org.springframework.web.servlet.function.ServerResponse;
  */
 @Configuration
 public class Routes {
+
     private static final String productServiceUrl   = "http://localhost:8080";
     private static final String orderServiceUrl     = "http://localhost:8081";
     private static final String inventoryServiceUrl = "http://localhost:8082";
@@ -29,7 +30,7 @@ public class Routes {
     public RouterFunction<ServerResponse> productServiceRoute() {
         return GatewayRouterFunctions.route("product_service").
                 route(RequestPredicates.path("/api/product"), HandlerFunctions.http(productServiceUrl))
-                                .filter(CircuitBreakerFilterFunctions.circuitBreaker("productServiceCircuitBreaker",
+                .filter(CircuitBreakerFilterFunctions.circuitBreaker("productServiceCircuitBreaker",
                         URI.create("forward:/fallbackRoute")))
                 .build();
     }
