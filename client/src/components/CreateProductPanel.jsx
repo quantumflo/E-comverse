@@ -1,43 +1,64 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-// Styles for the panel
 const Panel = styled.div`
-  background-color: #f9f9f9;
-  padding: 1.5rem;
+  background-color: beige;
+  padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin: 1rem 0;
+  box-shadow: -16px 16px 10px rgba(0, 0, 0, 0.1);
+  margin: 0 2rem;
+  width: 100%;
+  max-width: 300px;
+  position: relative;
+  float: right;
+`;
+
+const Arrow = styled.div`
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 20px solid beige;
 `;
 
 const FormField = styled.div`
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 `;
 
 const Label = styled.label`
   display: block;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  text-align: left;
 `;
 
 const Input = styled.input`
-  width: 100%;
-  padding: 0.5rem;
+  width: 90%;
+  padding: 0.75rem;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
 `;
 
 const Textarea = styled.textarea`
-  width: 100%;
-  padding: 0.5rem;
+  width: 90%;
+  padding: 0.75rem;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
 `;
 
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10rem;
+`;
+
 const Button = styled.button`
-  padding: 0.5rem 1.5rem;
+  padding: 0.75rem 1.5rem;
   font-size: 1rem;
   color: white;
   background-color: #007bff;
@@ -50,6 +71,25 @@ const Button = styled.button`
   &:hover {
     background-color: #0056b3;
   }
+`;
+
+const CancelButton = styled(Button)`
+  background-color: #6c757d;
+  margin-left: 1rem;
+
+  &:hover {
+    background-color: #5a6268;
+  }
+`;
+
+const Header = styled.h2`
+  font-size: 1.75rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+  margin: 0 0 1rem 0;
 `;
 
 const CreateProductPanel = ({ onCreate, onCancel }) => {
@@ -65,6 +105,9 @@ const CreateProductPanel = ({ onCreate, onCancel }) => {
 
   return (
     <Panel>
+      <Arrow />
+      <Header>Create Product</Header>
+
       <form onSubmit={handleSubmit}>
         <FormField>
           <Label>Product Name</Label>
@@ -86,15 +129,12 @@ const CreateProductPanel = ({ onCreate, onCancel }) => {
             required
           />
         </FormField>
-
-        <Button type="submit">Create Product</Button>
-        <Button
-          type="button"
-          onClick={onCancel}
-          style={{ marginLeft: "1rem", backgroundColor: "#6c757d" }}
-        >
-          Cancel
-        </Button>
+        <ButtonContainer>
+          <Button type="submit">Create</Button>
+          <CancelButton type="button" onClick={onCancel}>
+            Cancel
+          </CancelButton>
+        </ButtonContainer>
       </form>
     </Panel>
   );
