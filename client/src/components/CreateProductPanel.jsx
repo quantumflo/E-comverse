@@ -95,11 +95,12 @@ const Header = styled.h2`
 const CreateProductPanel = ({ onCreate, onCancel }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [quantity, setQuantity] = useState(1);
+  const [price, setPrice] = useState(0);
+  const [quantity, setQuantity] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newProduct = { name, description, quantity: parseInt(quantity) };
+    const newProduct = { name, description, price: parseInt(price), quantity: parseInt(quantity) };
     onCreate(newProduct);
   };
 
@@ -126,6 +127,17 @@ const CreateProductPanel = ({ onCreate, onCancel }) => {
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
             min="1"
+            required
+          />
+        </FormField>
+
+        <FormField>
+          <Label>Price</Label>
+          <Input
+            type="number"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            min="0"
             required
           />
         </FormField>
