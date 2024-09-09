@@ -5,6 +5,9 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [name, setName] = useState(null);
+  const [lastName, setLastName] = useState(null);
 
   useEffect(() => {
     const refreshToken = () => {
@@ -32,5 +35,11 @@ export const AuthProvider = ({ children }) => {
     keycloak.onTokenExpired = refreshToken;
   }, []);
 
-  return <AuthContext.Provider value={{ token, setToken }}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider
+      value={{ token, setToken, email, setEmail, name, setName, lastName, setLastName }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
 };

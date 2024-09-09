@@ -98,7 +98,7 @@ const OrderButton = styled.button`
 
 const Card = ({ name, description, price }) => {
   const [quantity, setQuantity] = useState(1);
-  const { token } = useContext(AuthContext);
+  const { token, email, name: userName, lastName } = useContext(AuthContext);
   const [notification, setNotification] = useState(null);
   const increaseQuantity = () => setQuantity(quantity + 1);
   const decreaseQuantity = () => setQuantity(quantity > 1 ? quantity - 1 : 1);
@@ -108,8 +108,13 @@ const Card = ({ name, description, price }) => {
       skuCode: name,
       quantity,
       price,
+      userDetails: {
+        email: email,
+        firstName: userName,
+        lastName: lastName,
+      },
     };
-    console.log("body: ", body);
+    // console.log("body: ", body);
 
     const response = await fetch(ORDER_SERVICE_URL, {
       method: "POST",

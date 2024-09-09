@@ -17,7 +17,7 @@ const NonLoggedIn = styled.div`
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const kcInitialized = useRef(false);
-  const { setToken } = useContext(AuthContext);
+  const { setToken, setEmail, setName, setLastName } = useContext(AuthContext);
 
   useEffect(() => {
     const initKeycloak = () => {
@@ -27,9 +27,12 @@ function App() {
           .then((authenticated) => {
             setIsAuthenticated(authenticated);
             // console.log("Keycloak initialized:", keycloak.authenticated);
-            // console.log("Keycloak token:", keycloak.token);
+            console.log("Keycloak token:", keycloak);
             // console.log("Keycloak authenticated:", authenticated);
             setToken(keycloak.token);
+            setEmail(keycloak.tokenParsed.email);
+            setName(keycloak.tokenParsed.given_name);
+            setLastName(keycloak.tokenParsed.family_name);
 
             keycloak.onTokenExpired = () => {
               console.log("Keycloak onTokenExpired");
