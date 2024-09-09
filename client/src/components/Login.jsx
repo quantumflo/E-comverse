@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 import keycloak from "../config/KeyCloak";
 
+// Button for login/logout
 const Button = styled.button`
   padding: 0.5rem 1rem;
   font-size: 1rem;
@@ -17,33 +17,7 @@ const Button = styled.button`
   }
 `;
 
-const Login = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [kcInitialized, setKcInitialized] = useState(false);
-
-  useEffect(() => {
-    const initKeycloak = () => {
-      if (!kcInitialized) {
-        keycloak
-          .init({ onLoad: "check-sso", pkceMethod: "S256" })
-          .then((authenticated) => {
-            setIsAuthenticated(authenticated);
-            console.log("Keycloak initialized:", keycloak.authenticated);
-            console.log("Keycloak token:", keycloak.token);
-            console.log("Keycloak authenticated:", authenticated);
-
-            keycloak.onTokenExpired = () => {
-              console.log("Keycloak onTokenExpired");
-            };
-          })
-          .catch((error) => {
-            console.error("Keycloak initialization error:", error);
-          });
-        setKcInitialized(true);
-      }
-    };
-    initKeycloak();
-  }, [kcInitialized]);
+const Login = ({ isAuthenticated, setIsAuthenticated }) => {
   const handleLoginLogout = () => {
     if (isAuthenticated) {
       keycloak.logout();
@@ -57,7 +31,7 @@ const Login = () => {
   return (
     <div>
       {isAuthenticated && keycloak.tokenParsed && (
-        <p>Logged in as: {keycloak.tokenParsed.preferred_username}</p>
+        <p>User : {keycloak.tokenParsed.preferred_username}</p>
       )}
       <Button isAuthenticated={isAuthenticated} onClick={handleLoginLogout}>
         {isAuthenticated ? "Logout" : "Login"}
