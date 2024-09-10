@@ -37,7 +37,13 @@ public class OrderService {
             order.setSkuCode(orderRequest.skuCode());
             orderRepository.save(order);
             // Send message to kaka topic
-            OrderPlacedEvent orderPlacedEvent = new OrderPlacedEvent(order.getOrderNumber(), orderRequest.userDetails().email());
+            // OrderPlacedEvent orderPlacedEvent = new OrderPlacedEvent(order.getOrderNumber(), orderRequest.userDetails().email());
+            OrderPlacedEvent orderPlacedEvent = new OrderPlacedEvent(order.getOrderNumber(), orderRequest.userDetails()
+            .email(),
+            orderRequest.userDetails()
+                    .firstName(),
+            orderRequest.userDetails()
+                    .lastName());
             log.info("OrderPlacedEvent started");
             kafkaTemplate.send("order-placed", orderPlacedEvent);
             log.info("OrderPlacedEvent Ended");
