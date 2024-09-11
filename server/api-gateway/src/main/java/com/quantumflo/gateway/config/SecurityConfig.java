@@ -10,7 +10,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @Configuration
 public class SecurityConfig {
 
-    private final String[] allowedUrls = new String[] {"/swagger-ui.html", "/v3/api-docs/**", "/api-docs/**", "/swagger-ui/**", "/aggregate/**"};
+    private final String[] allowedUrls = new String[] {"/swagger-ui.html", "/v3/api-docs/**", "/api-docs/**", "/swagger-ui/**", "/aggregate/**", "/actuator/prometheus"};
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
