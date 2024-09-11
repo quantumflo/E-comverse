@@ -14,16 +14,23 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 
 import com.quantumflo.microservices.order_service.client.InventoryClient;
 
+import io.micrometer.observation.ObservationRegistry;
+import lombok.RequiredArgsConstructor;
+
 @Configuration
+@RequiredArgsConstructor
 public class RestClientConfig {
 
     @Value("${inventory.url}")
     private String inventoryServiceURL;
+
+    private final ObservationRegistry observationRegistry;
     
     @Bean
     public InventoryClient inventoryClient() {
         RestClient restClient = RestClient.builder().baseUrl(inventoryServiceURL)
                                 .requestFactory(getClientRequestFactory())
+                                .observationRegistry(observationRegistry)
                                 .build();
         RestClientAdapter adapter = RestClientAdapter.create(restClient);
         HttpServiceProxyFactory factory = HttpServiceProxyFactory.builderFor(adapter).build();
