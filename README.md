@@ -1,6 +1,6 @@
 # E-comverse
 
-E-comverse is a comprehensive e-commerce platform built using modern microservices architecture. It leverages a variety of cutting-edge technologies for a robust and scalable solution. The platform includes services for handling inventory, notifications, orders, and products, with a user-friendly frontend that allows secure login through Keycloak.
+E-comverse e-commerce platform built using modern microservices architecture. The platform includes services for handling inventory, notifications, orders, and products, with a user-friendly frontend that allows secure login through Keycloak.
 
 ## Tech Stack
 
