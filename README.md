@@ -30,7 +30,6 @@ E-comverse e-commerce platform built using modern microservices architecture. Th
   - Spring Cloud Gateway MVC (for routing between microservices)
 
 ## Microservices Architecture
-
 The backend is built using a microservices architecture, with each service having its own database and functionality.
 
 ### Services:
@@ -50,7 +49,7 @@ The backend is built using a microservices architecture, with each service havin
 ### Prerequisites
 - Docker
 - Kubernetes (Kind)
-- Node.js
-- Java 21
+- NodeJS
+- Java
 - Maven
 
