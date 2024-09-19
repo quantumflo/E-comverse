@@ -14,6 +14,7 @@ E-comverse e-commerce platform built using modern microservices architecture. Th
   - MongoDB
   - MySQL
   - Kafka (Asynchronous communication between services)
+  - Zookeeper
   - Keycloak (Authentication and Authorization)
 
 - **Infrastructure & DevOps:**
