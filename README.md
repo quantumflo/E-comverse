@@ -19,13 +19,14 @@ E-comverse e-commerce platform built using modern microservices architecture. Th
 
 - **Infrastructure & DevOps:**
   - Docker
-  - Kubernetes (using Kind for local clusters)
   - Test Containers with Wiremock for integration testing
   - Grafana Stack for monitoring and logging:
     - Prometheus (metrics)
     - Grafana (visualization)
     - Loki (log aggregation)
     - Tempo (distributed tracing)
+    - Kubernetes (using Kind for local clusters). ( Implementing soon )
+
 
 - **API Gateway:**
   - Spring Cloud Gateway MVC (for routing between microservices)
